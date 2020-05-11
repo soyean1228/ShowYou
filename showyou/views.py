@@ -7,10 +7,10 @@ from django.http import HttpResponse
 #     return HttpResponse("Hello, world. You're at the polls index.")
 
 def index(request):
-    return render(request, 'main/index.html') 
+    return render(request, 'showyou/index.html') 
 
 def generic(request):
-    return render(request, 'main/generic.html') 
+    return render(request, 'showyou/generic.html') 
 
 def elements(request):
-    return render(request, 'main/elements.html') 
+    return render(request, 'showyou/elements.html') 

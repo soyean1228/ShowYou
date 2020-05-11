@@ -1,9 +1,11 @@
-import re
-import datetime
-from bs4 import BeautifulSoup
-from pymongo import MongoClient
-import pymongo
+#!/usr/bin/env python
+# coding: utf-8
+
+# In[9]:
+
+
 import requests
+from bs4 import BeautifulSoup
 
 def get_bs_obj(url):
     result = requests.get(url)
@@ -15,11 +17,11 @@ def get_bs_obj(url):
 # In[10]:
 
 
-try:
-    import GetOldTweets3 as got
-except:
-    get_ipython().system('pip install GetOldTweets3')
-    import GetOldTweets3 as got
+# try:
+#     import GetOldTweets3 as got
+# except:
+#     get_ipython().system('pip install GetOldTweets3')
+#     import GetOldTweets3 as got
 
 
 # In[11]:
@@ -29,9 +31,9 @@ import datetime
 
 days_range = []
 
-//원하는 검색기간 설정하기
-start = datetime.datetime.strptime("2020-04-14", "%Y-%m-%d")
-end = datetime.datetime.strptime("2020-04-15", "%Y-%m-%d")
+# //원하는 검색기간 설정하기
+start = datetime.datetime.strptime("2020-05-11", "%Y-%m-%d")
+end = datetime.datetime.strptime("2020-05-12", "%Y-%m-%d")
 date_generated = [start + datetime.timedelta(days=x) for x in range(0, (end-start).days)]
 
 for date in date_generated:
@@ -45,6 +47,7 @@ print("=== 총 {}일 간의 데이터 수집 ===".format(len(days_range)))
 
 
 import time
+import GetOldTweets3 as got
 
 # 수집 기간 맞추기
 start_date = days_range[0]
@@ -52,7 +55,7 @@ end_date = (datetime.datetime.strptime(days_range[-1], "%Y-%m-%d")
             + datetime.timedelta(days=1)).strftime("%Y-%m-%d") # setUntil이 끝을 포함하지 않으므로, day + 1
 
 # 트윗 수집 기준 정의 // 원하는 검색어 설정하기 
-tweetCriteria = got.manager.TweetCriteria().setQuerySearch('드라마')                                           .setSince(start_date)                                           .setUntil(end_date)                                           .setMaxTweets(-1)
+tweetCriteria = got.manager.TweetCriteria().setQuerySearch('웹툰').setSince(start_date).setUntil(end_date).setMaxTweets(20).setEmoji("unicode")
 
 # 수집 with GetOldTweet3
 print("Collecting data start.. from {} to {}".format(days_range[0], days_range[-1]))
@@ -68,23 +71,24 @@ print("=== Total num of tweets is {} ===".format(len(tweet)))
 
 
 from random import uniform
-from tqdm import tqdm_notebook
+# from tqdm import tqdm_notebook
+from tqdm import tqdm
 
 tweet_list = []
 
-for index in tqdm_notebook(tweet):
-    
+# for index in tqdm_notebook(tweet):
+for index in tqdm(tweet):
     # 메타데이터 목록 
     username = index.username
     link = index.permalink 
     content = index.text
     
-  # 결과 합치기
+    # 결과 합치기
     info_list = [ username, content, link]
     tweet_list.append(info_list)
     
     # 휴식 
-    time.sleep(uniform(1,2))
+    # time.sleep(uniform(1,2))
 
 
 # In[14]:
@@ -102,9 +106,9 @@ print("=== {} tweets are successfully saved ===".format(len(tweet_list)))
 
 # In[15]:
 
-
 df_tweet = pd.read_csv('영화_twitter_data_{}_to_{}.csv'.format(days_range[0], days_range[-1]))
 df_tweet.head(10)
 
 
-# In[ ]:
+
+
