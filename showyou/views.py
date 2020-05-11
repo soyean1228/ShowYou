@@ -14,3 +14,6 @@ def generic(request):
 
 def elements(request):
     return render(request, 'showyou/elements.html') 
+
+def twitterSelect(request):
+    return render(request, 'showyou/twitterSelect.html')     
