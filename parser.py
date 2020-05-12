@@ -1,33 +1,17 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[9]:
-
-
 import requests
 from bs4 import BeautifulSoup
+import datetime
+import time
+import GetOldTweets3 as got
+from random import uniform
+from tqdm import tqdm
+import pandas as pd
 
 
 def get_bs_obj(url):
     result = requests.get(url)
     bs_obj = BeautifulSoup(result.content, "html.parser")
     return bs_obj
-
-
-# In[10]:
-
-
-# try:
-#     import GetOldTweets3 as got
-# except:
-#     get_ipython().system('pip install GetOldTweets3')
-#     import GetOldTweets3 as got
-
-
-# In[11]:
-
-
-import datetime
 
 days_range = []
 
@@ -42,12 +26,6 @@ for date in date_generated:
 print("=== 설정된 트윗 수집 기간은 {} 에서 {} 까지 입니다 ===".format(days_range[0], days_range[-1]))
 print("=== 총 {}일 간의 데이터 수집 ===".format(len(days_range)))
 
-
-# In[12]:
-
-
-import time
-import GetOldTweets3 as got
 
 # 수집 기간 맞추기
 start_date = days_range[0]
@@ -67,13 +45,6 @@ print("Collecting data end.. {0:0.2f} Minutes".format((time.time() - start_time)
 print("=== Total num of tweets is {} ===".format(len(tweet)))
 
 
-# In[13]:
-
-
-from random import uniform
-# from tqdm import tqdm_notebook
-from tqdm import tqdm
-
 tweet_list = []
 
 # for index in tqdm_notebook(tweet):
@@ -90,21 +61,12 @@ for index in tqdm(tweet):
     # 휴식 
     # time.sleep(uniform(1,2))
 
-
-# In[14]:
-
-
-import pandas as pd
-
 twitter_df = pd.DataFrame(tweet_list, 
                           columns = ["user_name", "text", "link"])
 
 # csv 파일 만들기 
 twitter_df.to_csv("영화_twitter_data_{}_to_{}.csv".format(days_range[0], days_range[-1]), index=False)
 print("=== {} tweets are successfully saved ===".format(len(tweet_list)))
-
-
-# In[15]:
 
 df_tweet = pd.read_csv('영화_twitter_data_{}_to_{}.csv'.format(days_range[0], days_range[-1]))
 df_tweet.head(10)
