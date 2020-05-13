@@ -22,7 +22,10 @@ def twitterSelect(request):
     if search_keyword:
         print("있는 경우")
         twitterParser.parsing(search_keyword)
-    return render(request, 'showyou/twitterSelect.html') 
+        # return render(request, 'showyou/twitterSelect.html') 
+    else :
+        print("없는 경우")
+        return render(request, 'showyou/twitterSelect.html') 
 
 # def twitterKeyword(request):
 #     search_keyword = request.POST['search_keyword']

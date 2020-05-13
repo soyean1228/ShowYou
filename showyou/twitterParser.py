@@ -7,6 +7,9 @@ from random import uniform
 from tqdm import tqdm
 import pandas as pd
 
+import pymongo
+from . import mongo_connection
+
 def get_bs_obj(url):
     result = requests.get(url)
     bs_obj = BeautifulSoup(result.content, "html.parser")
@@ -50,6 +53,7 @@ def parsing(keyword):
     tweet_list = []
 
     # for index in tqdm_notebook(tweet):
+    i = 0
     for index in tqdm(tweet):
         # 메타데이터 목록 
         username = index.username
@@ -58,13 +62,16 @@ def parsing(keyword):
     
         # 결과 합치기
         info_list = [ username, content, link]
+        
         tweet_list.append(info_list)
     
         # 휴식 
         # time.sleep(uniform(1,2))
+        mongo_connection.save(i,username,content)
+        i = i + 1
 
     twitter_df = pd.DataFrame(tweet_list, 
-                              columns = ["user_name", "text", "link"])
+                                columns = ["user_name", "text", "link"])
 
     # csv 파일 만들기 
     twitter_df.to_csv("영화_twitter_data_{}_to_{}.csv".format(days_range[0], days_range[-1]), index=False)
@@ -72,4 +79,6 @@ def parsing(keyword):
 
     df_tweet = pd.read_csv('영화_twitter_data_{}_to_{}.csv'.format(days_range[0], days_range[-1]))
     df_tweet.head(10)
+
+
 
