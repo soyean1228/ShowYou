@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from . import twitterParser
-
+from . import twitter_parser
+from . import textmining
 # Create your views here.
 
 # def index(request):
@@ -21,8 +21,9 @@ def twitterSelect(request):
     print('search_keyword = ' + search_keyword)
     if search_keyword:
         print("있는 경우")
-        twitterParser.parsing(search_keyword)
-        # return render(request, 'showyou/twitterSelect.html') 
+        twitter_parser.parsing(search_keyword)
+        textmining.analysis()
+        return render(request, 'showyou/twitterSelect.html') 
     else :
         print("없는 경우")
         return render(request, 'showyou/twitterSelect.html') 

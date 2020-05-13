@@ -72,7 +72,6 @@ def parsing(keyword):
     #     i = i + 1
 
     i = 0
-
     for index in tqdm(tweet):
         # 메타데이터 목록 
         username = index.username
