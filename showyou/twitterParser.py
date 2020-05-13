@@ -53,22 +53,41 @@ def parsing(keyword):
     tweet_list = []
 
     # for index in tqdm_notebook(tweet):
+
+    # i = 0
+    # for index in tqdm(tweet):
+    #     # 메타데이터 목록 
+    #     username = index.username
+    #     link = index.permalink 
+    #     content = index.text
+    
+    #     # 결과 합치기
+    #     info_list = [ username, content, link]
+        
+    #     tweet_list.append(info_list)
+    
+    #     # 휴식 
+    #     # time.sleep(uniform(1,2))
+    #     mongo_connection.save(i,username,content)
+    #     i = i + 1
+
     i = 0
+
     for index in tqdm(tweet):
         # 메타데이터 목록 
         username = index.username
         link = index.permalink 
         content = index.text
-    
         # 결과 합치기
-        info_list = [ username, content, link]
-        
-        tweet_list.append(info_list)
-    
-        # 휴식 
-        # time.sleep(uniform(1,2))
-        mongo_connection.save(i,username,content)
+        info_list = {}
+        info_list['post_id'] = i
+        info_list['person_id'] = username
+        info_list['post'] = content
+        tweet_list += [info_list]
         i = i + 1
+
+    mongo_connection.post_insert(tweet_list)
+
 
     twitter_df = pd.DataFrame(tweet_list, 
                                 columns = ["user_name", "text", "link"])
