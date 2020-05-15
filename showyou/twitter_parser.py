@@ -86,10 +86,7 @@ def parsing(keyword):
         i = i + 1
 
     mongo_connection.post_insert(tweet_list)
-
-
-    twitter_df = pd.DataFrame(tweet_list, 
-                                columns = ["user_name", "text", "link"])
+    twitter_df = pd.DataFrame(tweet_list, columns = ["user_name", "text", "link"])
 
     # csv 파일 만들기 
     twitter_df.to_csv("영화_twitter_data_{}_to_{}.csv".format(days_range[0], days_range[-1]), index=False)
