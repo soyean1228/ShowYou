@@ -71,7 +71,7 @@ def parsing(ID):
 
         # 포스트 단위
         for pidx in range(1, post_count + 1):
-            print('-' * 50)
+            # print('-' * 50)
 
             post = soup.find("table", {"id": "printPost" + str(pidx)})
 
@@ -153,8 +153,3 @@ def parsing(ID):
         print("Error Post : ")
         for i in error_list:
             print(i)
-
-    # 파일 닫기
-    # file.close()
-
-# blog_parsing('mjuhyun98')
