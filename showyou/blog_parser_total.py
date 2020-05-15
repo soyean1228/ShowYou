@@ -38,15 +38,15 @@ def parsing(keyword,day):
     search_date_to = int(start)
     search_date_option = search_date_to - search_date_from -1
 
-    param = {
-        'where' : 'post',
-        'query' : keyword,
-        'date_from' : search_date_from,
-        'date_to' : search_date_to,
-        'date_option' : search_date_option
-    }
+    # param = {
+    #     'where' : 'post',
+    #     'query' : keyword,
+    #     'date_from' : search_date_from,
+    #     'date_to' : search_date_to,
+    #     'date_option' : search_date_option
+    # }
 
-    response = requests.get(url,params = param,headers=hrd)
+    # response = requests.get(url,params = param,headers=hrd)
     
     blog_post_list = []
     global i
@@ -54,7 +54,16 @@ def parsing(keyword,day):
 
     def blog_crawling(page):
         global i 
-        print(page)
+        param = {
+            'where' : 'post',
+            'query' : keyword,
+            'date_from' : search_date_from,
+            'date_to' : search_date_to,
+            'date_option' : search_date_option,
+            'start': page
+        }
+        response = requests.get(url,params = param,headers=hrd)
+        
         soup = BeautifulSoup(response.text, 'html.parser')
 
         blog_post = []
@@ -74,9 +83,10 @@ def parsing(keyword,day):
 
             blog_post += [blog_info] 
             i = i+1
+
         return blog_post
 
-    for index in range(1,10,1):
+    for index in range(1,20,10):
         blog_post_list += blog_crawling(page = index)
 
     mongo_connection.post_insert(blog_post_list)
