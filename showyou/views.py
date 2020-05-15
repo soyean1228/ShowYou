@@ -6,6 +6,7 @@ from . import twitter_parser_personal
 from . import twitter_parser_total
 from . import blog_parser_total
 from . import blog_parser_personal
+from . import keyword_wordcloud
 
 def index(request):
     return render(request, 'showyou/index.html') 
@@ -23,6 +24,7 @@ def twitter(request):
         print('search_keyword = ' + search_keyword)
         twitter_parser_total.parsing(search_keyword,'m')
         textmining.analysis()
+        keyword_wordcloud.show()
         return render(request, 'showyou/twitter_result.html')
     else :
         print("없는 경우")
