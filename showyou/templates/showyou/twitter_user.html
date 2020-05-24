@@ -27,7 +27,9 @@
 			<nav id="menu">
 				<ul class="links">
 					<li><a href="../">Home</a></li>
-					<li><a href="">Generic</a></li>
+					<li><a href="../twitter">Twitter</a></li>
+					<li><a href="../instagram">Instagram</a></li>
+					<li><a href="../blog">Blog</a></li>
 					<li><a href="elements/">Elements</a></li>
 				</ul>
 				<!-- <ul class="actions vertical">
@@ -106,13 +108,14 @@
 						}
 					</style>
 					<span class='green_window'>
-					<form method="get">
-						<input type='button' value='하루'/>	
-						<input type='button' value='일주일'/>	
-						<input type='button' value='한 달'/>
-						<input id=text type="text" class='input_text' placeholder="키워드 입력" name="search_keyword" onkeydown="enterSearch()"/></span>
-						<input type="submit" class='sch_smit'style="width:60pt;height:30pt;" value="검색" text-align= center; onclick="myFunction()"/>
-					</form>
+						<form method="get">
+							<input type='radio' class='input_date' name='date' value='d' checked/>하루	
+							<input type='radio' class='input_date' name='date' value='w'/>일주일	
+							<input type='radio' class='input_date' name='date' value='m'/>한달	
+							<br>
+							<input id=text type="text" class='input_text' placeholder="키워드 입력" name="search_keyword" onkeydown="enterSearch()"/></span>
+							<input type="submit" class='sch_smit'style="width:60pt;height:30pt;" value="검색" text-align= center; onclick="myFunction()"/>
+						</form>
 			
 					<p>Nunc lacinia ante nunc ac lobortis. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus ornare mi ut ante amet placerat aliquet. Volutpat eu sed ante lacinia sapien lorem accumsan varius montes viverra nibh in adipiscing blandit tempus accumsan.</p>
 					<p> Aenean iaculis, neque sed pretium egestas, nunc lacus tempus enim, nec tincidunt urna massa a libero. Aenean mattis bibendum est, a pharetra elit. Morbi commodo lectus quis blandit mattis. Cras pharetra quam quis tincidunt tempus. Donec a sem magna. Nullam purus purus, fermentum id lorem sit amet, porta elementum neque. Proin vulputate metus ac faucibus luctus.</p>
