@@ -83,18 +83,18 @@ def Sentiment_Analysis():
 
 
     #그래프 그릴 데이터 / 원하는 개수로 설정
-    input_keywords = keywords[55:73]
-    input_count = dict(list(count.items())[55:73])
-    input_sentiment = dict(list(sentiment.items())[55:73])
+    # input_keywords = keywords[55:73]
+    # input_count = dict(list(count.items())[55:73])
+    # input_sentiment = dict(list(sentiment.items())[55:73])
 
-    print(input_keywords)
-    print(input_count)
-    print(input_sentiment)
+    # print(input_keywords)
+    # print(input_count)
+    # print(input_sentiment)
 
 
     #원그래프 만들기
-    #r = np.random.randiant(5,15,size=10)
-    r = list(input_count.values())
+    # r = np.random.randiant(5,15,size=10)
+    r = list(count.values())
 
 
     class C():
@@ -116,7 +116,7 @@ def Sentiment_Analysis():
             self.iter = 1.
 
         def minimize(self):
-            while self.iter < 1000*self.N:
+            while self.iter < 10*self.N:
                 for i in range(self.N):
                     rand = np.random.randn(2)*self.step/self.iter
                     self.x[i,:2] += rand

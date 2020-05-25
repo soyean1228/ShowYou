@@ -71,8 +71,8 @@ def blog(request):
         print("크롤링 완료")
         textmining.analysis()
         # keyword_wordcloud.total_wordcloud()
-        # sentiment_analyzer.Analysis()
-        sentiment_analysis.Sentiment_Analysis()
+        sentiment_analyzer.Analysis()
+        # sentiment_analysis.Sentiment_Analysis()
         return render(request, 'showyou/blog.html') 
     else :
         print("없는 경우")
