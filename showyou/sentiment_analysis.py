@@ -1,19 +1,21 @@
+import matplotlib
+matplotlib.use('agg')
 import matplotlib.pyplot as plt
 import numpy as np
 import matplotlib
 import pymongo
 import cv2
-
-import matplotlib
-matplotlib.use("TkAgg") 
-
+from matplotlib import font_manager,rc
 from . import mongo_connection
 
-#window경우 한글폰트설정/ family에 원하는 폰트 작성
-matplotlib.rc('font', family='HYsanB')
 
-#mac의 경우 한글폰트설정
-# matplotlib.rc('font', family='AppleGothic')
+#한글 font 설정
+font = matplotlib.font_manager.FontProperties(fname="showyou/static/showyou/assets/fonts/MapoPeacefull.ttf")
+
+#Thread처리
+# plt.switch_backend('agg')
+
+
 
 #리스트 전부 가져오기
 def Sentiment_Analysis():
@@ -144,15 +146,15 @@ def Sentiment_Analysis():
             for i in range(self.N):
                 keyword=input_keywords[index]
                 if(input_sentiment[keyword]==1):
-                    color='orange'
+                    color='#6796DC'
                 elif(input_sentiment[keyword]==0):
-                    color='lightcoral'
+                    color= '#97CA73'
                 else:
-                    color='lightskyblue'
+                    color='#E97A7A'
 
                 circ = plt.Circle(self.x[i,:2],self.x[i,2], color = color)
                 ax.add_patch(circ)
-                ax.annotate(keyword, xy=(self.x[i,:2]), fontsize=10, ha="center")
+                ax.annotate(keyword, xy=(self.x[i,:2]), fontsize=10, ha="center",FontProperties = font)
                 index += 1
 
     c = C(r)
@@ -166,15 +168,12 @@ def Sentiment_Analysis():
     ax.autoscale_view()
 
      #그림 저장
-    plt.savefig('sentiment.png')
+    plt.savefig('s_result.png')
 
     #그래프 그려주기
-    # imgfile = '/Users/kimhaeun/Desktop/proj/ShowYou/sentiment.png'
-    # img = cv2.imread(imgfile,1)
-    # cv2.imwrite('ShowYou/static/showyou/images/senti.jpg',img)
+    imgfile = 's_result.png'
+    img = cv2.imread(imgfile,1)
+    cv2.imwrite('ShowYou/static/showyou/images/senti.jpg',img)
 
     #그래프 띄우기
-    plt.show()
-
-
-# Sentiment_Analysis()
+    #plt.show()

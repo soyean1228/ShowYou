@@ -39,5 +39,5 @@ def parsing(id):
     twitter_df = pd.DataFrame( tweet_list, columns = [ "user_name", "text"])
 
     # csv 파일 만들기
-    twitter_df.to_csv("{}_twitter_person.csv".format(id))
+    # twitter_df.to_csv("{}_twitter_person.csv".format(id))
     print("=== {} tweets are successfully saved ===".format(len(tweet_list)))

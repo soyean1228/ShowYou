@@ -82,7 +82,7 @@ def parsing(keyword,day):
     twitter_df = pd.DataFrame(tweet_list, columns = ["user_name", "text"])
 
     # csv 파일 만들기
-    twitter_df.to_csv("{}_twitter_data_{}_to_{}.csv".format(keyword,days_range[0], days_range[-1]), index=False)
-    print("=== {} tweets are successfully saved ===".format(len(tweet_list)))
-    df_tweet = pd.read_csv('{}_twitter_data_{}_to_{}.csv'.format(keyword,days_range[0], days_range[-1]))
-    df_tweet.head(10)
+    # twitter_df.to_csv("{}_twitter_data_{}_to_{}.csv".format(keyword,days_range[0], days_range[-1]), index=False)
+    # print("=== {} tweets are successfully saved ===".format(len(tweet_list)))
+    # df_tweet = pd.read_csv('{}_twitter_data_{}_to_{}.csv'.format(keyword,days_range[0], days_range[-1]))
+    # df_tweet.head(10)

@@ -32,5 +32,6 @@ def total_wordcloud():
     imgfile = 'w_result1.png'
     img = cv2.imread(imgfile,1)
     cv2.imwrite('ShowYou/static/showyou/images/w.jpg',img)
+    print('저장 완료')
 
 # total_wordcloud()

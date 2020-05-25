@@ -10,6 +10,7 @@ from . import instagram_parser_personal
 from . import sentiment_analysis
 from . import mongo_connection
 from . import keyword_wordcloud
+from . import sentiment_analyzer
 # 
 import json
 import numpy as np
@@ -38,6 +39,7 @@ def twitter(request):
         twitter_parser_total.parsing(search_keyword,'date')
         textmining.analysis()
         # keyword_wordcloud.show()
+        sentiment_analysis.Sentiment_Analysis()
         return render(request, 'showyou/twitter_result.html')
     else :
         print("없는 경우")
@@ -65,9 +67,12 @@ def blog(request):
     print('search_keyword = ' + search_keyword)
     if search_keyword:
         print("있는 경우")
-        blog_parser_total.parsing(search_keyword,'date')
-        # blog_parser_personal.parsing(search_keyword)
+        blog_parser_total.parsing(search_keyword,date)
+        print("크롤링 완료")
         textmining.analysis()
+        # keyword_wordcloud.total_wordcloud()
+        # sentiment_analyzer.Analysis()
+        sentiment_analysis.Sentiment_Analysis()
         return render(request, 'showyou/blog.html') 
     else :
         print("없는 경우")

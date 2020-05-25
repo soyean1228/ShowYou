@@ -1936,16 +1936,14 @@
 
 	input[type="checkbox"],
 	input[type="radio"] {
-		-moz-appearance: none;
-		-webkit-appearance: none;
-		-ms-appearance: none;
-		appearance: none;
-		display: block;
-		float: left;
-		margin-right: -2em;
-		opacity: 0;
-		width: 1em;
-		z-index: -1;
+			-moz-appearance: button;
+			-webkit-appearance: checkbox;
+			-ms-appearance: auto;
+			appearance: auto;
+			display: inline-block;
+			float: center;
+			width: 1em;
+			z-index: -1;
 	}
 
 		input[type="checkbox"] + label,
@@ -3209,7 +3207,7 @@
 				}
 
 		}
-
+/*
 <style>
 .green_window {
     display: inline-block;
@@ -3238,5 +3236,5 @@
 }
 .sch_smit:hover {
     background: #56C82C;
-}
+}*/
 		
