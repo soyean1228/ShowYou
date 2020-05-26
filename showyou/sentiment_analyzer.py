@@ -110,6 +110,7 @@ class Sentiment_Analyzer:
         self.set_sentiments(self.model,keywords)
 
 def Analysis():
+    print("시작")
     analyzer = Sentiment_Analyzer()
     analyzer.analyze()
 
