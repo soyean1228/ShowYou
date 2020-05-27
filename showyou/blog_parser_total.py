@@ -86,7 +86,7 @@ def parsing(keyword,day):
 
         return blog_post
 
-    for index in range(1,20,10):
+    for index in range(1,50,10):
         blog_post_list += blog_crawling(page = index)
 
     mongo_connection.post_insert(blog_post_list)

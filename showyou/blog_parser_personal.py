@@ -136,6 +136,9 @@ def parsing(ID):
 
             # # 전체 수 증가
             total_num += 1
+            if total_num > 20:
+                break
+        
         blog_post_list += blog_post
 
     print(blog_post_list)
@@ -153,3 +156,5 @@ def parsing(ID):
         print("Error Post : ")
         for i in error_list:
             print(i)
+
+# parsing('rnwkcjs2509')
