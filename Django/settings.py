@@ -26,7 +26,7 @@ SECRET_KEY = '5ptgmfr%w2n6som5uzs%p@2#bpcs1ixbx8ass38&fxo&t)ix_c'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1','.herokuapp.com']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -50,7 +50,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware'
 
-    ,'whitenoise.middleware.WhiteNoiseMiddleware', 'django.middleware.security.SecurityMiddleware', 'django.contrib.sessions.middleware.SessionMiddleware', 'django.middleware.common.CommonMiddleware', 'django.middleware.csrf.CsrfViewMiddleware', 'django.contrib.auth.middleware.AuthenticationMiddleware', 'django.contrib.messages.middleware.MessageMiddleware', 'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    #,'whitenoise.middleware.WhiteNoiseMiddleware', 'django.middleware.security.SecurityMiddleware', 'django.contrib.sessions.middleware.SessionMiddleware', 'django.middleware.common.CommonMiddleware', 'django.middleware.csrf.CsrfViewMiddleware', 'django.contrib.auth.middleware.AuthenticationMiddleware', 'django.contrib.messages.middleware.MessageMiddleware', 'django.middleware.clickjacking.XFrameOptionsMiddleware',
     # 'whitenoise.middleware.WhiteNoiseMiddleware'
 ]
 
@@ -127,15 +127,15 @@ STATIC_URL = '/static/'
 #     os.path.join(BASE_DIR,'showyou','static')
 # ]
 
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+#BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
-STATIC_ROOT = os.path.normpath(os.path.join(BASE_DIR, 'staticfiles'))
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, "static"), # Root의 static 파일
-    '/showyou/static/',	# garden App의 static 파일
-)
+#STATIC_ROOT = os.path.normpath(os.path.join(BASE_DIR, 'staticfiles'))
+#STATICFILES_DIRS = (
+#    os.path.join(BASE_DIR, "static"), # Root의 static 파일
+#    '/showyou/static/',	# garden App의 static 파일
+#)
 
 # django_heroku.settings(locals())
 
 # STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-import dj_database_url db_from_env = dj_database_url.config(conn_max_age=500) DATABASES['default'].update(db_from_env)
+#import dj_database_url db_from_env = dj_database_url.config(conn_max_age=500) DATABASES['default'].update(db_from_env)
