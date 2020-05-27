@@ -27,7 +27,6 @@ def parsing(keyword):
     driver = webdriver.Chrome(
         executable_path="/Users/soyean/Desktop/capston/chromedriver.exe"
     )
-    
     driver.get(url)
 
     time.sleep(3)
@@ -55,23 +54,32 @@ def parsing(keyword):
 
     SCROLL_PAUSE_TIME = 1.0
     reallink = []
-    stop = "no"
+    stop_signal = 0
 
     while True:
-        if stop == "yes":
-                break
+       
         pageString = driver.page_source
         bsObj = BeautifulSoup(pageString, 'lxml')
 
         for link1 in bsObj.find_all(name='div', attrs={"class":"Nnq7C weEfm"}):
-            if stop == "yes":
+            if stop_signal > 0:
                     break
-            for i in range(3):
-                title = link1.select('a')[i]
-                real = title.attrs['href']
-                reallink.append(real)
-                if len(reallink) > 10:
-                        stop = "yes"
+           
+            try: 
+                for i in range(3):
+                  if len(reallink) >= 50:
+                       stop_signal += 1
+                       break
+                  title = link1.select('a')[i]
+                  real = title.attrs['href']
+                  reallink.append(real)
+                  reallink = list(set(reallink))
+                      
+            except IndexError:
+               print('Hello Error!')
+       
+        if stop_signal > 0 :
+            break
 
         last_height = driver.execute_script('return document.body.scrollHeight')
         driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
@@ -128,9 +136,7 @@ def parsing(keyword):
         num+=1
 
     mongo_connection.post_insert(result)
-    # data = pd.DataFrame(result)
-    # data.to_csv('bubble.txt', encoding='utf-8')
+    data = pd.DataFrame(result)
+    data.to_csv('bubble.txt', encoding='utf-8')
 
     driver.close()
-    
-    #wordcloud.total_wordcloud()

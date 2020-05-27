@@ -37,15 +37,15 @@ def Sentiment_Analysis():
         post_id.append(i['post_id'])
         keyword_list.append(i['keyword'])
 
-    #for i in post_id:
-    #    print(i, '/', keyword_list[i], '/', sentiment_data[i])
+    for i in post_id:
+       print(i, '/', keyword_list[i], '/', sentiment_data[i])
 
 
     #합친 딕션너리
     post_id_to_keywords = dict(zip(post_id,keyword_list))
     post_id_to_sentiment = dict(zip(post_id,sentiment_data))
-    #print(post_id_to_keywords)
-    #print(post_id_to_sentiment)
+    print(post_id_to_keywords)
+    print(post_id_to_sentiment)
 
 
     #키워드에 따른 빈도수 구하기
@@ -85,18 +85,18 @@ def Sentiment_Analysis():
             sentiment[k] = 0
 
 
-    #print('keywords')
-    #print(keywords)
-    #print('count')
-    #print(count)
-    #print('sentiment')
-    #print(sentiment)
+    print('keywords')
+    print(keywords)
+    print('count')
+    print(count)
+    print('sentiment')
+    print(sentiment)
 
 
     input_keywords = []
     input_count = []
     for key,value in count.items():
-        if(value > 1):  #원의 갯수 여기를 바꿔주기
+        if(value > 3):  #원의 갯수 여기를 바꿔주기
             input_keywords.append(key)
             input_count.append(value)
 
