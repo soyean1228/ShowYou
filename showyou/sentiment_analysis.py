@@ -26,7 +26,7 @@ plt.switch_backend('agg')
 #리스트 전부 가져오기
 def Sentiment_Analysis():
 
-    post_list = mongo_connection.post_category_find()
+    post_list = mongo_connection.post_find()
     sentiment_list = mongo_connection.sentiment_analysis_result_find()
     textmining_list = mongo_connection.textmining_result_find()
 
@@ -102,29 +102,8 @@ def Sentiment_Analysis():
     input_count = dict(sorted(count.items(), key=lambda key: key[1],reverse=True)[0:10])
     input_keywords=list(count.keys())
 
-
     print(input_keywords)
     print(input_count)
-
-
-
-
-'''
-    input_keywords = []
-    input_count = []
-    for key,value in count.items():
-        if(value > 3):  #원의 갯수 여기를 바꿔주기
-            input_keywords.append(key)
-            input_count.append(value)
-    input_sentiment = []
-    for keyword in input_keywords:
-        for key,value in sentiment.items():
-            if(keyword == key):
-                input_sentiment.append(value)
-    print(input_keywords)
-    print(input_count)
-    print(input_sentiment)
-    '''
 
     #원그래프 만들기 --------------------------------------------------------
 
