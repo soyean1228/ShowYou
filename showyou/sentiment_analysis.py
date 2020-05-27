@@ -48,8 +48,8 @@ def Sentiment_Analysis():
         post_id.append(i['post_id'])
         keyword_list.append(i['keyword'])
 
-    for i in post_id:
-        print(i, '/', keyword_list[i], '/', sentiment_data[i])
+    #for i in post_id:
+    #    print(i, '/', keyword_list[i], '/', sentiment_data[i])
 
 
     #합친 딕션너리
@@ -102,8 +102,8 @@ def Sentiment_Analysis():
     input_count = dict(sorted(count.items(), key=lambda key: key[1],reverse=True)[0:10])
     input_keywords=list(count.keys())
 
-    print(input_keywords)
-    print(input_count)
+    # print(input_keywords)
+    # print(input_count)
 
     #원그래프 만들기 --------------------------------------------------------
 

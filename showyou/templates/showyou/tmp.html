@@ -10,7 +10,7 @@
 		<title>ShowYou</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="stylesheet" href="{% static 'showyou/assets/css/main.css' %}" />
+        <link rel="stylesheet" href="{% static 'showyou/assets/css/main.css' %}" />
 	</head>
 
 	<body class="subpage">
@@ -49,79 +49,15 @@
 						<h1>결과</h1>
 						<p>워드클라우드와 감성분석</p>
 					</header>
-					<span class='green_window'>
-						<form method="get">
-							<input type='radio' class='input_category' name='category' value='건강'/>건강	
-							<input type='radio' class='input_category' name='category' value='경제'/>경제
-							<input type='radio' class='input_category' name='category' value='뷰티'/>뷰티
-							<input type='radio' class='input_category' name='category' value='엔터테인먼트'/>엔터테인먼트	
-							<input type='radio' class='input_category' name='category' value='IT'/>IT
-							<input type='radio' class='input_category' name='category' value='기타'/>기타
-							<input type="submit" class='sch_smit'style="width:60pt;height:30pt;" value="검색" text-align= center; onclick="myFunction()"/>
-							<br>
-						</form>
-					<!-- 검색창 -->
-					<style>
-						ul#hi {
-							list-style-type: none;
-							margin: 0;
-							padding: 0;
-							background-color: rgb(226, 107, 77);
-						}
-
-						ul:after {
-							content: '';
-							display: block;
-							clear: both;
-						}
-
-						.active {
-							float: left;
-						}
-
-						.active {
-							display: block;
-							color: white;
-							text-align: center;
-							padding: 14px 16px;
-							text-decoration: none;
-						}
-
-						li a:hover:not(.active) {
-							background-color: #111;
-						}
-
-
-						.input_text {
-							/* width: 348px; height: 21px; */
-							margin: 6px 0 0 9px;
-							border: 0;
-							line-height: 21px;
-							font-weight: bold;
-							font-size: 16px;
-							outline: none;
-						}
-						.sch_smit {
-							position: relative;
-							left: 500px;
-							top: 25px;
-							margin: 0; border: 1;
-							vertical-align: top;
-							background: #200400;
-							color: white;
-							font-weight: bold;
-
-							border-radius: 1px;
-							cursor: pointer;
-						}
-						.sch_smit:hover {
-							background: #56C82C;
-						}
-
-						.div#mid{
-							text-align: center;
-						}
-					</style>
+					<form method="get">
+                        <link rel="stylesheet" href="{% static 'showyou/assets/css/category.css' %}">
+                        <a href = "/visualization/{{keyword}}/{{date}}/1" class="btn-two green rounded" > 건강</a>
+                        <a href = "/visualization/{{keyword}}/{{date}}/2" class="btn-two red rounded" > 경제</a>
+                        <a href = "/visualization/{{keyword}}/{{date}}/3" class="btn-two orange rounded" > 뷰티</a>
+                        <a href = "/visualization/{{keyword}}/{{date}}/4" class="btn-two cyan rounded" > 엔터테인먼트</a>
+                        <a href = "/visualization/{{keyword}}/{{date}}/5" class="btn-two blue rounded" > IT</a>
+                        <a href = "/visualization/{{keyword}}/{{date}}/6" class="btn-two purple rounded" > 기타</a>
+					</form>
 
 					<span class='green_window'>
 					<h1>당신이 검색한 '{{keyword}}'에 대한 분석 결과입니다.</h1>
@@ -154,9 +90,7 @@
 				<div class="copyright">
 					&copy; Untitled. Design <a href="https://templated.co">TEMPLATED</a>. Images <a href="https://unsplash.com">Unsplash</a>.
 				</div>
-			</footer>
-
-		<!--— Scripts -->
+            </footer>
 		<script src="{% static 'showyou/assets/js/jquery.min.js' %} "></script>
 		<script src="{% static 'showyou/assets/js/jquery.scrolly.min.js' %} "></script>
 		<script src="{% static 'showyou/assets/js/skel.min.js' %} "></script>

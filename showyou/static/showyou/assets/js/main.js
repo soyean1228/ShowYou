@@ -62,15 +62,5 @@
 
 	});
 
-	// 여기부터 추가
-	function onloadevent(){
-		document.getElementById("loading_oh").style.visibility="hidden"
-	}
-	
-	window.onload=function()
-	{
-		onloadevent();
-	}
-	
 
 })(jQuery);

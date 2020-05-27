@@ -6,6 +6,8 @@ from django.contrib import admin
 from django.urls import path, include
 from . import views
 
+app_name = 'showyou'
+
 urlpatterns = [
     path('',views.index, name = 'index'),
     path('generic/',views.generic, name = 'generic'),
@@ -18,5 +20,6 @@ urlpatterns = [
     path('twitter_user/',views.twitter_user, name = 'twitter_user'),
     path('instagram_user/',views.instagram_user, name = 'instagram_user'),
     path('blog_user/',views.blog_user, name = 'blog_user'),
-     path('visualization/',views.visualization, name = 'visualization'),
+    path('tmp/',views.visualization, name = 'visualization'),
+    path('visualization/<slug:search_keyword>/<slug:date>/<slug:category>/', views.visualization, name='visualization')
 ]

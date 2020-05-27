@@ -26,15 +26,16 @@ def twitter(request):
     date = request.GET.get('date')
     print(date)
     if search_keyword:
-        print("있는 경우")
-        print(date)
-        print('search_keyword = ' + search_keyword)
-        twitter_parser_total.parsing(search_keyword,date)
-        textmining.analysis()
+        # print("있는 경우")
+        # print(date)
+        # print('search_keyword = ' + search_keyword)
+        # twitter_parser_total.parsing(search_keyword,date)
+        # textmining.analysis()
         # sentiment_analyzer.Analysis()
-        wordcloud.total_wordcloud()
-        sentiment_analysis.Sentiment_Analysis()
-        return render(request, 'showyou/visualization.html', {'keyword':search_keyword})
+        # wordcloud.total_wordcloud()
+        # sentiment_analysis.Sentiment_Analysis()
+        return render(request, 'showyou/tmp.html', {'keyword': search_keyword, 'date': date})
+        # return redirect('visualization')
     else :
         print("없는 경우")
         return render(request, 'showyou/twitter.html') 
@@ -122,12 +123,6 @@ def instagram_user(request):
         print("없는 경우")
         return render(request, 'showyou/instagram_user.html')
 
-def visualization(request):
-    category = request.GET.get('category')
-    if category:
-        print("카테고리있는경우")
-        print(category)
-        return render(request, 'showyou/visualization.html')
-    else :
-        print("카테고리없는경우")
-        return render(request, 'showyou/visualization.html')
+def visualization(request, search_keyword, date, category):
+    
+    return render(request, 'showyou/tmp.html', {'keyword': search_keyword, 'date': date})
