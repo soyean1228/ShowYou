@@ -49,7 +49,18 @@
 						<h1>결과</h1>
 						<p>워드클라우드와 감성분석</p>
 					</header>
+					<span class='green_window'>
+						<form method="get">
+							<input type='radio' class='input_category' name='category' value='건강' checked/>건강	
+							<input type='radio' class='input_category' name='category' value='경제'/>경제
+							<input type='radio' class='input_category' name='category' value='뷰티'/>뷰티
+							<input type='radio' class='input_category' name='category' value='엔터테인먼트'/>엔터테인먼트	
+							<input type='radio' class='input_category' name='category' value='IT'/>IT
+							<input type='radio' class='input_category' name='category' value='기타'/>기타
+							<input type="submit" class='sch_smit'style="width:60pt;height:30pt;" value="검색" text-align= center; onclick="myFunction()"/>
 
+							<br>
+						</form>
 					<!-- 검색창 -->
 					<style>
 						ul#hi {
@@ -114,7 +125,7 @@
 					</style>
 
 					<span class='green_window'>
-					<!-- <form method="get">
+					<!-- <form method="get"
 						<input id=text type="text" class='input_text' placeholder="키워드 입력" name="search_keyword" onkeydown="enterSearch()"/></span>
 						<input type="submit" class='sch_smit'style="width:60pt;height:30pt;" value="검색" text-align= center; onclick="myFunction()"/>
 					</form> -->

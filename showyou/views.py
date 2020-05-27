@@ -123,4 +123,11 @@ def instagram_user(request):
         return render(request, 'showyou/instagram_user.html')
 
 def visualization(request):
-    return render(request, 'showyou/visualization.html')
+    category = request.GET.get('category')
+    if category:
+        print("카테고리있는경우")
+        print(category)
+        return render(request, 'showyou/visualization.html')
+    else :
+        print("카테고리없는경우")
+        return render(request, 'showyou/visualization.html')
