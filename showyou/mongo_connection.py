@@ -14,8 +14,11 @@ def post_insert(list):
     )
     db = client.get_database('ShowYou')
     collection = db.get_collection('post')
-    collection.drop() 
+    collection.drop()
     collection.insert(list)
+    # results = collection.find()
+    # for result in results :
+    #     print(result)
     client.close()
 
 def post_find():
@@ -24,31 +27,6 @@ def post_find():
     )
     db = client.get_database('ShowYou')
     collection = db.get_collection('post')
-    doc = collection.find()
-    # for result in doc :
-    #     print(result)
-    client.close()
-    return doc
-
-def textmining_result_insert(list):
-    client = pymongo.MongoClient(
-        "mongodb+srv://showyou:showyou@showyou-aznp8.mongodb.net/test?retryWrites=true&w=majority"
-    )
-    db = client.get_database('ShowYou')
-    collection = db.get_collection('textmining_result')
-    collection.drop() 
-    collection.insert(list)
-    # doc = collection.find()
-    # for result in doc :
-    #     print(result)
-    client.close()
-
-def textmining_result_find():
-    client = pymongo.MongoClient(
-        "mongodb+srv://showyou:showyou@showyou-aznp8.mongodb.net/test?retryWrites=true&w=majority"
-    )
-    db = client.get_database('ShowYou')
-    collection = db.get_collection('textmining_result')
     doc = collection.find()
     # for result in doc :
     #     print(result)
@@ -67,17 +45,27 @@ def sentiment_analysis_result_find():
     client.close()
     return doc
 
-def post_id_find():
+def textmining_result_insert(list):
     client = pymongo.MongoClient(
         "mongodb+srv://showyou:showyou@showyou-aznp8.mongodb.net/test?retryWrites=true&w=majority"
     )
     db = client.get_database('ShowYou')
-    collection = db.get_collection('post')
-    doc = collection.find()
-    post_id = []
-    for i in doc: 
-        post_id += [i['person_id']]
-        # print(i['post_id'])
-    # print(post_id)
+    collection = db.get_collection('textmining_result')
+    collection.drop()
+    collection.insert(list)
+    # doc = collection.find()
+    # for result in doc :
+    #     print(result)
     client.close()
-    return post_id
+
+def textmining_result_find():
+    client = pymongo.MongoClient(
+        "mongodb+srv://showyou:showyou@showyou-aznp8.mongodb.net/test?retryWrites=true&w=majority"
+    )
+    db = client.get_database('ShowYou')
+    collection = db.get_collection('textmining_result')
+    doc = collection.find()
+    # for result in doc :
+    #     print(result)
+    client.close()
+    return doc

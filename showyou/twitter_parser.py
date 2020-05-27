@@ -94,6 +94,3 @@ def parsing(keyword):
 
     df_tweet = pd.read_csv('영화_twitter_data_{}_to_{}.csv'.format(days_range[0], days_range[-1]))
     df_tweet.head(10)
-
-
-

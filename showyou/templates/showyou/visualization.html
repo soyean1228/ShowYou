@@ -1,0 +1,165 @@
+<!DOCTYPE HTML>
+
+<!-- static 파일을 불러 오기 위해서 -->
+{% load static %}
+
+
+
+<html>
+	<head>
+		<title>ShowYou</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="{% static 'showyou/assets/css/main.css' %}" />
+	</head>
+
+	<body class="subpage">
+
+		<!-- Header -->
+			<header id="header">
+				<nav class="left">
+					<a href="#menu"><span>Menu</span></a>
+				</nav>
+				<a href="../" class="logo">ShowYou</a>
+				<!-- <nav class="right">
+					<a href="#" class="button alt">Log in</a>
+				</nav> -->
+			</header>
+
+		<!-- Menu -->
+			<nav id="menu">
+				<ul class="links">
+					<li><a href="../">Home</a></li>
+					<li><a href="">Generic</a></li>
+					<li><a href="elements/">Elements</a></li>
+				</ul>
+				<!-- <ul class="actions vertical">
+					<li><a href="#" class="button fit">Login</a></li>
+				</ul> -->
+			</nav>
+		<!-- Navigater
+			<ul id="hi">
+				<li><a class="active" href="../instagram">전체</a></li>
+				<li><a class="active" href="">개인</a></li>
+			  </ul> -->
+		<!-- Main -->
+			<section id="main" class="wrapper">
+				<div class="inner">
+					<header class="align-center">
+						<h1>결과</h1>
+						<p>워드클라우드와 감성분석</p>
+					</header>
+
+					<!-- 검색창 -->
+					<style>
+						ul#hi {
+							list-style-type: none;
+							margin: 0;
+							padding: 0;
+							background-color: rgb(226, 107, 77);
+						}
+
+						ul:after {
+							content: '';
+							display: block;
+							clear: both;
+						}
+
+						.active {
+							float: left;
+						}
+
+						.active {
+							display: block;
+							color: white;
+							text-align: center;
+							padding: 14px 16px;
+							text-decoration: none;
+						}
+
+						li a:hover:not(.active) {
+							background-color: #111;
+						}
+
+
+						.input_text {
+							/* width: 348px; height: 21px; */
+							margin: 6px 0 0 9px;
+							border: 0;
+							line-height: 21px;
+							font-weight: bold;
+							font-size: 16px;
+							outline: none;
+						}
+						.sch_smit {
+							position: relative;
+							left: 500px;
+							top: 25px;
+							margin: 0; border: 1;
+							vertical-align: top;
+							background: #200400;
+							color: white;
+							font-weight: bold;
+
+							border-radius: 1px;
+							cursor: pointer;
+						}
+						.sch_smit:hover {
+							background: #56C82C;
+						}
+
+						.div#mid{
+							text-align: center;
+						}
+					</style>
+
+					<span class='green_window'>
+					<!-- <form method="get">
+						<input id=text type="text" class='input_text' placeholder="키워드 입력" name="search_keyword" onkeydown="enterSearch()"/></span>
+						<input type="submit" class='sch_smit'style="width:60pt;height:30pt;" value="검색" text-align= center; onclick="myFunction()"/>
+					</form> -->
+					<!-- <% String a = request.get%> -->
+					<h1>당신이 검색한 '{{keyword}}'에 대한 분석 결과입니다.</h1>
+					<div id='mid'>
+						<img src="{% static 'showyou/images/w.jpg' %}">
+					</div>
+					<div>
+						<h1>포스트의 내용에서 가장 많이 나타나는 단어 순서대로 크기가 큰 글자 단어로 나타나게 됩니다.</h1>
+					</div>
+
+					<div id='mid'>
+						<img src="{% static 'showyou/images/senti.jpg' %}">
+					</div>
+					<div>
+						<h1>관심사가 클수록 큰 원이며 긍정은 파란색,중립은 녹색,부정은 빨간색입니다.</h1>
+
+					</div>
+
+
+
+				</div>
+			</section>
+
+		<!-- Footer -->
+			<footer id="footer">
+				<div class="inner">
+					<h2>Get In Touch</h2>
+					<ul class="actions">
+						<li><span class="icon fa-phone"></span> <a href="#">(000) 000-0000</a></li>
+						<li><span class="icon fa-envelope"></span> <a href="#">information@untitled.tld</a></li>
+						<li><span class="icon fa-map-marker"></span> 123 Somewhere Road, Nashville, TN 00000</li>
+					</ul>
+				</div>
+				<div class="copyright">
+					&copy; Untitled. Design <a href="https://templated.co">TEMPLATED</a>. Images <a href="https://unsplash.com">Unsplash</a>.
+				</div>
+			</footer>
+
+		<!— Scripts —>
+		<script src="{% static 'showyou/assets/js/jquery.min.js' %} "></script>
+		<script src="{% static 'showyou/assets/js/jquery.scrolly.min.js' %} "></script>
+		<script src="{% static 'showyou/assets/js/skel.min.js' %} "></script>
+		<script src="{% static 'showyou/assets/js/util.js' %} "></script>
+		<script src="{% static 'showyou/assets/js/main.js' %} "></script>
+	</body>
+</html>

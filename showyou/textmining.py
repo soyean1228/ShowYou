@@ -14,5 +14,5 @@ def analysis():
         doc_list += [doc]
         # print(okt.nouns(i['post']))
     mongo_connection.textmining_result_insert(doc_list)
-    print('textming 완료')
+    print('텍스트마이닝 저장 완료')
  

@@ -23,7 +23,7 @@ def parsing(id):
     url = baseurl + quote_plus(plusUrl) + '/?hl=ko'
 
     driver = webdriver.Chrome(
-        executable_path="/Users/soyean/Desktop/capston/chromedriver_win32"
+        executable_path="/Users/soyean/Desktop/capston/chromedriver.exe"
     )
     driver.get(url)
 
@@ -37,11 +37,11 @@ def parsing(id):
 
     elem_login = driver.find_element_by_name("username")
     elem_login.clear()
-    elem_login.send_keys('01050464726')
+    elem_login.send_keys('seeon0001@gmail.com')
 
     elem_login = driver.find_element_by_name('password')
     elem_login.clear()
-    elem_login.send_keys('gusdk0220!!')
+    elem_login.send_keys('tldhs212')
 
     time.sleep(1)
 
@@ -53,29 +53,42 @@ def parsing(id):
     SCROLL_PAUSE_TIME = 1.0
     reallink = []
 
-    stop = "no"
-
+    stop_signal = 0
+    
+    
     while True:
-        if stop == "yes":
-            break
-
+        
+        
         pageString = driver.page_source
         bsObj = BeautifulSoup(pageString, 'lxml')
 
         for link1 in bsObj.find_all(name='div', attrs={"class":"Nnq7C weEfm"}):
-            if stop == "yes":
+            if stop_signal >0 :
                 break
-            for i in range(3):
-                title = link1.select('a')[i]
-                real = title.attrs['href']
-                reallink.append(real)
-                if len(reallink) == 3:
-                    stop = "yes"
-
+           
+            try: 
+                for i in range(3):
+                  if len(reallink) >= 10:
+                       stop_signal += 1
+                       break
+                  title = link1.select('a')[i]
+                  real = title.attrs['href']
+                  reallink.append(real)
+                  reallink = list(set(reallink))
+                      
+            except IndexError:
+               print('Hello Error!')
+        
+        if stop_signal > 0 :
+            break
+            
+        #과거의 높이
+        
         last_height = driver.execute_script('return document.body.scrollHeight')
         driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
         time.sleep(SCROLL_PAUSE_TIME)
         new_height = driver.execute_script("return document.body.scrollHeight")
+
 
         if new_height == last_height:
             driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
@@ -88,8 +101,16 @@ def parsing(id):
                 last_height = new_height
                 continue
 
-    num_of_data = len(reallink)
+    same = []
+    count = 0
 
+ 
+
+    
+
+
+    num_of_data = len(reallink)
+    
 
     print('총 {0}개의 데이터를 수집합니다.'.format(num_of_data))
     csvtext = []
@@ -116,15 +137,17 @@ def parsing(id):
         # csvtext[i].append(reallink1)
         instagram_info['person_id'] = reallink1
 
+        result_text=""
         for reallink2 in soup.find_all('meta', attrs={'property':"instapp:hashtags"}):
             hashtags = reallink2['content'].rstrip(',')
             csvtext[i].append(hashtags)
+            result_text += (hashtags+" ")
             
-        result_text = ""
-        for i in csvtext[i]:
-            result_text += (i+" ")
+        # result_text = ""
+        # for i in csvtext[i]:
+        #     result_text += (i+" ")
            
-        result_text = result_text.strip()
+        #result_text = result_text.strip()
 
         instagram_info['post'] = result_text
         result += [instagram_info]
@@ -136,10 +159,13 @@ def parsing(id):
 
     # csv로 저장
 
-    data = pd.DataFrame(result)
-    data.to_csv('instagram_parser_personal.csv', encoding='utf-8')
+    # data = pd.DataFrame(result)
+    # data.to_csv('insta.csv', encoding='utf-8')
     
 
     driver.close()
 
-# parsing('hyo.zzang__')
+# parsing('ldh1233')
+#parsing('hyuna_.aa')
+#parsing('billyangel_yeokbuk')
+#parsing('hyo.zzang__')

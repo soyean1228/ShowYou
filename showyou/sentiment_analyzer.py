@@ -106,11 +106,8 @@ class Sentiment_Analyzer:
 
     def analyze(self):
         keywords=self.get_keywordses(self.tokenizer)
-        print('진행중~~~')
         self.set_sentiments(self.model,keywords)
 
 def Analysis():
-    print("시작")
     analyzer = Sentiment_Analyzer()
     analyzer.analyze()
-
