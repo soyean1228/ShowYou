@@ -50,13 +50,14 @@
 						<p>워드클라우드와 감성분석</p>
 					</header>
 					<form method="get">
-                        <link rel="stylesheet" href="{% static 'showyou/assets/css/category.css' %}">
-                        <a href = "/visualization/{{keyword}}/{{date}}/1" class="btn-two green rounded" > 건강</a>
-                        <a href = "/visualization/{{keyword}}/{{date}}/2" class="btn-two red rounded" > 경제</a>
-                        <a href = "/visualization/{{keyword}}/{{date}}/3" class="btn-two orange rounded" > 뷰티</a>
-                        <a href = "/visualization/{{keyword}}/{{date}}/4" class="btn-two cyan rounded" > 엔터테인먼트</a>
-                        <a href = "/visualization/{{keyword}}/{{date}}/5" class="btn-two blue rounded" > IT</a>
-                        <a href = "/visualization/{{keyword}}/{{date}}/6" class="btn-two purple rounded" > 기타</a>
+						<link rel="stylesheet" href="{% static 'showyou/assets/css/category.css' %}">
+						<a href = "/visualization/{{keyword}}/{{date}}/전체" class="btn-two orange rounded" > 전체</a>
+                        <a href = "/visualization/{{keyword}}/{{date}}/건강" class="btn-two green rounded" > 건강</a>
+                        <a href = "/visualization/{{keyword}}/{{date}}/경제" class="btn-two red rounded" > 경제</a>
+                        <a href = "/visualization/{{keyword}}/{{date}}/뷰티" class="btn-two yellow rounded" > 뷰티</a>
+                        <a href = "/visualization/{{keyword}}/{{date}}/엔터테인먼트" class="btn-two cyan rounded" > 엔터테인먼트</a>
+                        <a href = "/visualization/{{keyword}}/{{date}}/IT" class="btn-two blue rounded" > IT</a>
+                        <a href = "/visualization/{{keyword}}/{{date}}/기타" class="btn-two purple rounded" > 기타</a>
 					</form>
 
 					<span class='green_window'>

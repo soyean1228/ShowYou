@@ -11,6 +11,7 @@ app_name = 'showyou'
 urlpatterns = [
     path('',views.index, name = 'index'),
     path('generic/',views.generic, name = 'generic'),
+    path('index/',views.index, name = 'index'),
     path('elements/',views.elements, name = 'elements'),
 
     path('twitter/',views.twitter, name = 'twitter'),
@@ -20,6 +21,7 @@ urlpatterns = [
     path('twitter_user/',views.twitter_user, name = 'twitter_user'),
     path('instagram_user/',views.instagram_user, name = 'instagram_user'),
     path('blog_user/',views.blog_user, name = 'blog_user'),
-    path('tmp/',views.visualization, name = 'visualization'),
-    path('visualization/<slug:search_keyword>/<slug:date>/<slug:category>/', views.visualization, name='visualization')
+
+    # path('tmp/',views.visualization, name = 'visualization'),
+    path('visualization/<str:search_keyword>/<slug:date>/<str:category>/', views.visualization, name='visualization')
 ]
