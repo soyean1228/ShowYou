@@ -22,6 +22,5 @@ urlpatterns = [
     path('instagram_user/',views.instagram_user, name = 'instagram_user'),
     path('blog_user/',views.blog_user, name = 'blog_user'),
 
-    # path('tmp/',views.visualization, name = 'visualization'),
     path('visualization/<str:search_keyword>/<slug:date>/<str:category>/', views.visualization, name='visualization')
 ]

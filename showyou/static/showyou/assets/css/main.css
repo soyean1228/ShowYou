@@ -1663,6 +1663,7 @@
 
 	a {
 		color: #25a2c3;
+		/* color: #ffc153; */
 		text-decoration: underline;
 	}
 
@@ -2394,10 +2395,11 @@
 		-webkit-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
 		-ms-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
 		transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-		background-color: #f6755e;
+		background-color: #ffc153;
 		border-radius: 4px;
 		border: 0;
-		color: #ffffff;
+		color: #ffffff; 
+		/* 이거 아님 */
 		cursor: pointer;
 		display: inline-block;
 		font-family: "Montserrat", sans-serif;
@@ -2415,7 +2417,7 @@
 		input[type="button"]:hover,
 		button:hover,
 		.button:hover {
-			background-color: #f78a76;
+			background-color: #f78a76;	
 		}
 
 		input[type="submit"]:active,
@@ -2424,6 +2426,7 @@
 		button:active,
 		.button:active {
 			background-color: #f56046;
+			/* background-color: #ffc153; */
 		}
 
 		input[type="submit"].icon,
@@ -2537,6 +2540,7 @@
 		.button.disabled,
 		.button:disabled {
 			background-color: #767d85 !important;
+			/* background-color: #ffc153; */
 			box-shadow: inset 0 -0.15em 0 0 rgba(0, 0, 0, 0.15);
 			color: #fff !important;
 			cursor: default;
@@ -2681,7 +2685,7 @@
 	}
 
 		#header .logo {
-			color: #f6755e;
+			color:  #ffc153;
 			font-family: "Pacifico", cursive;
 			font-size: 2.5em;
 			letter-spacing: 2px;
@@ -2935,7 +2939,7 @@
 
 		#banner h1 {
 			font-size: 3em;
-			color: #25a2c3;
+			color: #5D5D5D;
 			line-height: 1em;
 			margin: 0 0 0.5em 0;
 			padding: 0;
@@ -3132,12 +3136,13 @@
 
 /* Footer */
 
-	#footer {
-		padding: 6em 0 4em 0;
-		background: #25a2c3;
-		text-align: center;
-		color: #c8e7f0;
-	}
+   #footer {
+	padding: 6em 0 4em 0;
+	/* background: #25a2c3; */
+	background : #ffc153;
+	text-align: center;
+	color: #c8e7f0;
+ }
 
 		#footer h2 {
 			color: #fff;
@@ -3207,34 +3212,3 @@
 				}
 
 		}
-/*
-<style>
-.green_window {
-    display: inline-block;
-    width: 366px; height: 34px;
-    border: 3px solid #200400;
-    background: white;
-}
-.input_text {
-    width: 348px; height: 21px;
-    margin: 6px 0 0 9px;
-    border: 0;
-    line-height: 21px;
-    font-weight: bold;
-    font-size: 16px;
-    outline: none;
-}
-.sch_smit {
-    width: 54px; height: 40px;
-    margin: 0; border: 0;
-    vertical-align: top;
-    background: #200400;
-    color: white;
-    font-weight: bold;
-    border-radius: 1px;
-    cursor: pointer;
-}
-.sch_smit:hover {
-    background: #56C82C;
-}*/
-		

@@ -35,8 +35,8 @@
 			<section id="main" class="wrapper">
 				<div class="inner">
 					<header class="align-center">
-						<h1>결과</h1>
-						<p>워드클라우드와 감성분석</p>
+						<h1>당신이 검색한 '{{keyword}}'에 대한 분석 결과입니다</h1>
+						<!-- <p>워드클라우드와 감성분석</p> -->
 					</header>
 					<form method="get">
 						<link rel="stylesheet" href="{% static 'showyou/assets/css/category.css' %}">
@@ -44,42 +44,43 @@
                         <a href = "/visualization/{{keyword}}/{{date}}/건강" class="btn-two green rounded" > 건강</a>
                         <a href = "/visualization/{{keyword}}/{{date}}/경제" class="btn-two red rounded" > 경제</a>
                         <a href = "/visualization/{{keyword}}/{{date}}/뷰티" class="btn-two yellow rounded" > 뷰티</a>
+                        <a href = "/visualization/{{keyword}}/{{date}}/생활" class="btn-two purple rounded" > 생활</a>
                         <a href = "/visualization/{{keyword}}/{{date}}/엔터테인먼트" class="btn-two cyan rounded" > 엔터테인먼트</a>
                         <a href = "/visualization/{{keyword}}/{{date}}/IT" class="btn-two blue rounded" > IT</a>
-                        <a href = "/visualization/{{keyword}}/{{date}}/기타" class="btn-two purple rounded" > 기타</a>
+                        <a href = "/visualization/{{keyword}}/{{date}}/기타" class="btn-two gray rounded" > 기타</a>
 					</form>
 
-					<h1>당신이 검색한 '{{keyword}}'에 대한 분석 결과입니다.</h1>
+					<!-- <h1>당신이 검색한 '{{keyword}}'에 대한 분석 결과입니다.</h1> -->
 					<div id='mid'>
+						<h2><b>워드클라우드</b></h2>
 						<img src="{% static 'showyou/images/w.jpg' %}">
+						<p></p>
+						<p>게시글의 내용에서 가장 많이 나타나는 단어 순서대로 크기가 큰 글자 단어로 나타나게 됩니다.</p>
 					</div>
-					<div>
-						<h1>포스트의 내용에서 가장 많이 나타나는 단어 순서대로 크기가 큰 글자 단어로 나타나게 됩니다.</h1>
-					</div>
-
 					<div id='mid'>
+						<h2><b>감성분석</b></h2>
 						<img src="{% static 'showyou/images/senti.jpg' %}">
-					</div>
-					<div>
-						<h1>관심사가 클수록 큰 원이며 긍정은 파란색,중립은 녹색,부정은 빨간색입니다.</h1>
+						<p></p>
+						<p>빈도수가 높은 키워드는 큰 원으로 나타나며, 긍부정의 척도에 따라 원의 색이 다르게 나타납니다.</p>
+						<p>해당 키워드에 대해 부정일수록 빨간색으로 표시됩니다.</p>
 					</div>
 				</div>
 			</section>
 
 		<!-- Footer -->
-			<footer id="footer">
-				<div class="inner">
-					<h2>Get In Touch</h2>
-					<ul class="actions">
-						<li><span class="icon fa-phone"></span> <a href="#">(000) 000-0000</a></li>
-						<li><span class="icon fa-envelope"></span> <a href="#">information@untitled.tld</a></li>
-						<li><span class="icon fa-map-marker"></span> 123 Somewhere Road, Nashville, TN 00000</li>
-					</ul>
-				</div>
-				<div class="copyright">
-					&copy; Untitled. Design <a href="https://templated.co">TEMPLATED</a>. Images <a href="https://unsplash.com">Unsplash</a>.
-				</div>
-            </footer>
+		<footer id="footer">
+			<div class="inner">
+				<h2>Get In Touch</h2>
+				<ul class="actions">
+					<li><span class="icon fa-phone"></span> <a href="#">(010)1234-5678</a></li>
+					<li><span class="icon fa-envelope"></span> <a href="#">wantyoushowyougcp@gmail.com</a></li>
+					<li><span class="icon fa-map-marker"></span> 경기도 용인시 처인구 남동 명지로 116</li>
+				</ul>
+			</div>
+			<div class="copyright">
+				&copy; Untitled. Design <a href="https://templated.co">TEMPLATED</a>. Images <a href="https://unsplash.com">Unsplash</a>.
+			</div>
+		</footer>
 		<script src="{% static 'showyou/assets/js/jquery.min.js' %} "></script>
 		<script src="{% static 'showyou/assets/js/jquery.scrolly.min.js' %} "></script>
 		<script src="{% static 'showyou/assets/js/skel.min.js' %} "></script>

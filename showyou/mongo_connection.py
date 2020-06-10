@@ -58,6 +58,18 @@ def textmining_result_insert(list):
     #     print(result)
     client.close()
 
+def post_category_find():
+    client = pymongo.MongoClient(
+        "mongodb+srv://showyou:showyou@showyou-aznp8.mongodb.net/test?retryWrites=true&w=majority"
+    )
+    db = client.get_database('ShowYou')
+    collection = db.get_collection('post_category')
+    doc = collection.find()
+    # for result in doc :
+    #     print(result)
+    client.close()
+    return doc
+
 def textmining_result_find():
     client = pymongo.MongoClient(
         "mongodb+srv://showyou:showyou@showyou-aznp8.mongodb.net/test?retryWrites=true&w=majority"
