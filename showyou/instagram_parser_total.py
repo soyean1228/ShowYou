@@ -39,11 +39,11 @@ def parsing(keyword):
 
     elem_login = driver.find_element_by_name("username")
     elem_login.clear()
-    elem_login.send_keys('seeon0001@gmail.com')
+    elem_login.send_keys('****@gmail.com') //email 삭제 
 
     elem_login = driver.find_element_by_name('password')
     elem_login.clear()
-    elem_login.send_keys('tldhs212')
+    elem_login.send_keys('****')//password 삭제 
 
     time.sleep(1)
 
