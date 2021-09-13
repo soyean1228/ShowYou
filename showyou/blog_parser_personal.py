@@ -156,5 +156,3 @@ def parsing(ID):
         print("Error Post : ")
         for i in error_list:
             print(i)
-
-# parsing('rnwkcjs2509')
