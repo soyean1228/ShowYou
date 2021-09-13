@@ -164,8 +164,3 @@ def parsing(id):
     
 
     driver.close()
-
-# parsing('ldh1233')
-#parsing('hyuna_.aa')
-#parsing('billyangel_yeokbuk')
-#parsing('hyo.zzang__')
